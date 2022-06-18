@@ -87,8 +87,8 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  scroll-behavior: smooth;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 
@@ -160,3 +160,11 @@ div {
     --smooth-corners: 6.6;
   }
 } */
+
+
+
+::-webkit-scrollbar {
+  width: 2px;
+  behavior: smooth;
+}
+

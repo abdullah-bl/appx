@@ -22,7 +22,7 @@ export default function Aside() {
 	const { pathname, push } = useRouter()
 	const { query, handleSearch } = useSearch('')
 	return (
-		<aside className='border-l-2 border-solid border-x-slate-100 h-screen w-72 min-w-72 flex flex-col justify-between gap-3 p-5 '>
+		<aside className=' overflow-scroll border-l-2 border-solid border-x-slate-100 h-screen w-72 min-w-72 flex flex-col justify-between gap-3 p-5 '>
 			<div className='my-5'>
 				<NextLink href={'/'} passHref>
 					<a>
