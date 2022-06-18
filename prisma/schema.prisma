@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider  = "prisma-client-js"
+  skipCache = true
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  username  String   @unique
+  password  String?
+  admin     Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  color     String   @default("#11d1b5")
+  append    Append[]
+
+
+  @@index([username, admin])
+}
+
+model Employee {
+  id             Int         @id @default(autoincrement())
+  name           String
+  no             Int?        @unique // user idintfield number
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @default(now())
+  active         Boolean     @default(true)
+  retirementDate DateTime?   @default(now())
+  hiredDate      DateTime?   @default(now())
+  branch         Branch?     @relation(fields: [branchId], references: [id])
+  branchId       Int?
+  unit           Unit?       @relation(fields: [unitId], references: [id])
+  unitId         Int?
+  department     Department? @relation(fields: [departmentId], references: [id])
+  departmentId   Int?
+  appends        Append[]
+
+  @@index([name, no])
+}
+
+model Append {
+  id           Int         @id @default(autoincrement())
+  start        DateTime    @default(now())
+  end          DateTime    @default(now())
+  internal     Boolean     @default(false)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @default(now())
+  employee     Employee?   @relation(fields: [employeeId], references: [id])
+  employeeId   Int?
+  branch       Branch?     @relation(fields: [branchId], references: [id])
+  branchId     Int?
+  unit         Unit?       @relation(fields: [unitId], references: [id])
+  unitId       Int?
+  department   Department? @relation(fields: [departmentId], references: [id])
+  departmentId Int?
+  createdBy    User?       @relation(fields: [createdById], references: [id])
+  createdById  Int?
+
+  @@index([start, end, employeeId])
+}
+
+model Branch {
+  id        Int        @id @default(autoincrement())
+  name      String
+  units     Unit[]
+  employees Employee[]
+  appends   Append[]
+
+  @@index([name])
+}
+
+model Unit {
+  id          Int          @id @default(autoincrement())
+  name        String
+  branch      Branch?      @relation(fields: [branchId], references: [id])
+  branchId    Int?
+  departments Department[]
+  employees   Employee[]
+  appends     Append[]
+
+  @@index([name])
+}
+
+model Department {
+  id        Int        @id @default(autoincrement())
+  name      String
+  unit      Unit?      @relation(fields: [unitId], references: [id])
+  unitId    Int?
+  employees Employee[]
+  appends   Append[]
+
+  @@index([name])
+}

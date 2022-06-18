@@ -1,0 +1,47 @@
+@media print {
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    margin: 0;
+    color: #000;
+    background-color: #fff;
+  }
+
+
+  header,
+  footer,
+  aside,
+  nav,
+  form,
+  iframe,
+  .menu,
+  .hero,
+  .adslot {
+    display: none !important;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+
+  /* target the first page only */
+  @page :first {
+    margin-top: 6cm;
+  }
+
+  /* target left (even-numbered) pages only */
+  @page :left {
+    margin-right: 4cm;
+  }
+
+  /* target right (odd-numbered) pages only */
+  @page :right {
+    margin-left: 4cm;
+  }
+
+}

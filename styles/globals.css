@@ -1,9 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./print.css";
+
+/* @font-face {
+  font-family: Tajawal;
+  src: url(/fonts/Tajawal-Medium.ttf);
+  font-weight: 500;
+} */
+
+@font-face {
+  font-family: Tajawal;
+  src: url(/fonts/Tajawal/Tajawal-Medium.ttf);
+  font-weight: 500;
+  font-display: fallback;
+  size-adjust: 100%;
+}
+
+@font-face {
+  font-family: Tajawal;
+  src: url(/fonts/Tajawal/Tajawal-Regular.ttf);
+  font-weight: 300;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Tajawal;
+  src: url(/fonts/Tajawal-ExtraLight.ttf);
+  font-weight: 100;
+  font-display: fallback;
+
+}
+
+@font-face {
+  font-family: Tajawal;
+  src: url(/fonts/Tajawal-Light.ttf);
+  font-weight: 200;
+  font-display: fallback;
+
+}
+
+:root {
+  color: black;
+  color-scheme: light dark;
+  --color-primary: #00bcd4;
+  --color-secondary: #ff9800;
+  --color-tertiary: #ff5722;
+  --color-quaternary: #9c27b0;
+  --color-quinary: #673ab7;
+  --color-senary: #3f51b5;
+  --color-septenary: #2196f3;
+  --color-octonary: #009688;
+  --color-nonary: #4caf50;
+  --color-decenary: #8bc34a;
+
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "Tajawal", -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  /* background-image: radial-gradient(#ffffff 20%, transparent 20%),
+    radial-gradient(#e3e3e3 20%, transparent 20%);
+  background-color: #ffffff;
+  background-position: 0 0,
+    10px 10px;
+  background-size: 7px 7px; */
 }
 
 a {
@@ -12,5 +83,80 @@ a {
 }
 
 * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  scroll-behavior: smooth;
   box-sizing: border-box;
 }
+
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+table {
+  width: 100%
+}
+
+table>tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+  text-align: center;
+  align-content: center;
+}
+
+table>tbody>tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+  /* border: 1px solid #eee !important; */
+}
+
+table>thead>tr>th {
+  border: 1px solid #eee;
+  /* border-right: 0; */
+  /* border-left: 0; */
+  padding: 10px;
+  margin: 10px;
+}
+
+tbody>tr>td {
+  border: 1px solid #eee;
+  /* border-right: 0; */
+  /* border-left: 0; */
+  margin: 10px;
+  padding: 10px;
+}
+
+
+.table-latest> :last-child {
+  /* color: rgba(9, 9, 9, 0.088); */
+  /* background: red; */
+}
+
+
+/* @media (max-width: 768px) {
+  aside {
+    display: none !important;
+  }
+
+} */
+
+/* 
+
+div {
+  border-radius: 84px;
+}
+
+@supports (mask-image: paint(smooth-corners)) {
+  div {
+    border-radius: 0;
+    mask-image: paint(smooth-corners);
+    --smooth-corners: 6.6;
+  }
+} */
