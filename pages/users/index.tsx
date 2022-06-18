@@ -12,13 +12,36 @@ export default function Users() {
 	return (
 		<Layout>
 			<div className='flex items-start'>
-				<div className='bg-white h-screen w-1/3 flex flex-col items-center'>
+				<div className='bg-white h-screen overflow-scroll w-1/3 flex flex-col items-center'>
 					<h1>Users</h1>
 					<Skeletons />
 					<Skeletons />
 					<Skeletons />
 					<Skeletons />
 					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+					<Skeletons />
+
 					<Skeletons />
 					<Skeletons />
 					<Skeletons />
