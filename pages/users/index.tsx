@@ -12,7 +12,6 @@ export default function Users() {
 	const { data, mutate } = useUser()
 	return (
 		<Layout>
-<<<<<<< HEAD
 			<ListViewLayout
 				list={<div />}
 				details={
@@ -21,49 +20,6 @@ export default function Users() {
 					</div>
 				}
 			/>
-=======
-			<div className='flex items-start'>
-				<div className='bg-white h-screen overflow-scroll w-1/3 flex flex-col items-center'>
-					<h1>Users</h1>
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-					<Skeletons />
-				</div>
-				<div className='w-full h-screen flex flex-col bg-slate-100'>
-					details
-				</div>
-			</div>
->>>>>>> c1b98ea83e1205b7d7962bf4316cfc3597621bd1
 		</Layout>
 	)
 }
