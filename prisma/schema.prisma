@@ -18,7 +18,7 @@ model User {
   password  String?
   admin     Boolean  @default(false)
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
   color     String   @default("#11d1b5")
   append    Append[]
 
@@ -31,7 +31,7 @@ model Employee {
   name           String
   no             Int?        @unique // user idintfield number
   createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @default(now())
+  updatedAt      DateTime    @default(now()) @updatedAt
   active         Boolean     @default(true)
   retirementDate DateTime?   @default(now())
   hiredDate      DateTime?   @default(now())
@@ -52,7 +52,7 @@ model Append {
   end          DateTime    @default(now())
   internal     Boolean     @default(false)
   createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @default(now())
+  updatedAt    DateTime    @default(now()) @updatedAt
   employee     Employee?   @relation(fields: [employeeId], references: [id])
   employeeId   Int?
   branch       Branch?     @relation(fields: [branchId], references: [id])
