@@ -1,9 +1,9 @@
-import Layout from 'components/layout'
+import { PageLayout } from '~/components/Layouts'
 
 export default function Reports() {
 	return (
-		<Layout>
+		<PageLayout>
 			<h1>Reports</h1>
-		</Layout>
+		</PageLayout>
 	)
 }

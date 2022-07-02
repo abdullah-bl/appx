@@ -2,14 +2,26 @@ import { NextPage } from 'next'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
-import { withSessionSsr } from 'lib/session'
-import Label from 'components/label'
-import Input from 'components/input'
-import Button from 'components/button'
-import useUser from 'hooks/useUser'
+import Label from '~/components/Label'
+import Input from '~/components/Input'
+import Button from '~/components/Button'
+import { trpc } from '~/utils/trpc'
+import jsCookies from 'js-cookie'
 
 const LoginPage: NextPage = () => {
 	const { push } = useRouter()
+	const loginMutation = trpc.useMutation('auth.login', {
+		onError: (error) => {
+			toast.error(error.message)
+			console.log(error)
+		},
+		onSuccess: (data) => {
+			toast.success('Login successful')
+			jsCookies.set('token', data.token)
+			return push('/')
+		},
+	})
+
 	const {
 		register,
 		handleSubmit,
@@ -22,22 +34,17 @@ const LoginPage: NextPage = () => {
 	})
 
 	const onSubmit = async (data: any) => {
-		const res = await fetch('/api/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		})
-		const json = await res.json()
-		if (json.status === 'success') {
-			toast.dismiss()
-			toast.success('مرحباً, ' + json.data?.name)
-			return push('/')
-		} else {
-			toast.dismiss()
-			toast.error(json.message)
-		}
+		const { username, password } = data
+		await loginMutation.mutateAsync({ username, password })
+		// if (response.success) {
+		// toast.dismiss()
+		// toast.success('مرحباً, ' + response.user?.name)
+		// return push('/')
+		// }
+		// if (!response.success) {
+		// 	toast.dismiss()
+		// 	toast.error(response.message)
+		// }
 	}
 	return (
 		<div className='flex flex-1 justify-center items-center h-screen flex-col bg-orange-200'>
@@ -90,19 +97,3 @@ const LoginPage: NextPage = () => {
 }
 
 export default LoginPage
-
-export const getServerSideProps = withSessionSsr(
-	async function getServerSideProps({ req }) {
-		if (req.session.user) {
-			return {
-				redirect: {
-					destination: '/',
-				},
-				props: {},
-			}
-		}
-		return {
-			props: {},
-		}
-	}
-)

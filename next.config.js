@@ -3,8 +3,9 @@
 const nextConfig = {
 	// / Prefer loading of ES Modules over CommonJS
 	reactStrictMode: true,
+	output: 'standalone',
 	experimental: {
-		outputStandalone: true,
+		runtime: 'nodejs',
 	},
 }
 

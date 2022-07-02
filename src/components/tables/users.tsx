@@ -1,5 +1,5 @@
 import type { User } from '@prisma/client'
-import Avatar from 'components/avatar'
+import Avatar from '~/components/Avatar'
 import { useRouter } from 'next/router'
 
 const UsersTable = ({ users }: { users: User[] }) => {

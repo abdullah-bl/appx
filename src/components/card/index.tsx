@@ -1,4 +1,4 @@
-import { RANDOM_LIGHT_COLOR } from 'lib'
+import { RANDOM_LIGHT_COLOR } from '~/lib'
 import { useMemo } from 'react'
 import CountUp from 'react-countup'
 

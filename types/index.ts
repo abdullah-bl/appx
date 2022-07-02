@@ -1,9 +1,11 @@
+import { User } from "@prisma/client"
 
-
-
-export interface IResponse {
-  status: 'success' | 'error';
+export interface iResponse {
+  success: boolean
   message: string
-  data?: any
   [key: string]: any
+}
+
+export interface LoginTypes extends iResponse {
+  user?: User | undefined
 }

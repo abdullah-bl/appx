@@ -1,17 +1,13 @@
-import Header from 'components/header'
-import useUser from 'hooks/useUser'
+import Header from '~/components/Header'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
-import { prisma } from 'lib/prisma'
 
-import Button from 'components/button'
-import Label from 'components/label'
-import Input from 'components/input'
+import Button from '~/components/Button'
+import Label from '~/components/Label'
+import Input from '~/components/Input'
 import Link from 'next/link'
-import Container from 'components/container'
-import { withSessionSsr } from 'lib/session'
 import { User } from '@prisma/client'
 
 export default function ChangePassword({
@@ -73,7 +69,7 @@ export default function ChangePassword({
 		console.log(json)
 	}
 	return (
-		<Container>
+		<>
 			<Header title='تغيير كلمة المرور' />
 			<div className='flex flex-col items-center justify-center h-[92vh] overflow-hidden'>
 				<div className='flex flex-col items-center rounded border-2 border-blue-500 p-5 min-w-[400px]'>
@@ -143,37 +139,6 @@ export default function ChangePassword({
 					</form>
 				</div>
 			</div>
-		</Container>
+		</>
 	)
 }
-
-export const getServerSideProps = withSessionSsr(
-	async function getServerSideProps({ req, query }) {
-		const selectedUser = await prisma.user.findUnique({
-			where: {
-				username: String(query.username),
-			},
-			select: {
-				id: true,
-				username: true,
-				name: true,
-			},
-		})
-
-		if (!req.session.user) {
-			return {
-				redirect: {
-					destination: '/login',
-					permanent: false,
-				},
-			}
-		}
-
-		return {
-			props: {
-				selectedUser,
-				user: req.session.user,
-			},
-		}
-	}
-)

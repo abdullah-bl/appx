@@ -1,4 +1,4 @@
-import Tabs, { Tab } from 'components/tabs'
+import Tabs, { Tab } from '~/components/Tabs'
 import { useRouter } from 'next/router'
 
 export function SettingsTabs() {

@@ -1,9 +1,9 @@
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
-import { ICON_SIZE } from 'lib'
+import { ICON_SIZE } from '~/lib'
 import { useRouter } from 'next/router'
 import React, { memo } from 'react'
 import querystring from 'query-string'
-import Input from 'components/input'
+import Input from '~/components/Input'
 
 export const SearchComponent = memo(() => {
 	const { pathname, push, query } = useRouter()

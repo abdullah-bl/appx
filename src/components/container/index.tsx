@@ -1,9 +1,7 @@
-import { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 
-export default function Container({ children }: { children: ReactNode }) {
-	return (
-		<div className='flex flex-1 flex-col w-full h-screen scroll-smooth'>
-			{children}
-		</div>
-	)
-}
+const Container = (props: React.HTMLAttributes<HTMLDivElement>) => (
+	<div className='w-full h-screen overflow-y-scroll' {...props} />
+)
+
+export default Container

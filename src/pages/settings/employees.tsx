@@ -1,7 +1,6 @@
-import Button from 'components/button'
-import Container from 'components/container'
-import Header from 'components/header'
-import Layout from 'components/layout'
+import Button from '~/components/Button'
+import Header from '~/components/Header'
+import { PageLayout } from '~/components/Layouts'
 import { NextPage } from 'next'
 import { useState, useRef } from 'react'
 import XLSX from 'xlsx'
@@ -21,7 +20,7 @@ const Employees: NextPage = () => {
 	}
 
 	return (
-		<Layout>
+		<PageLayout>
 			<Header title='الموظفين'>
 				<div className='flex items-center'>
 					<Button
@@ -50,7 +49,7 @@ const Employees: NextPage = () => {
 				</div>
 			</Header>
 			{/* <div className='overflow-scroll' dangerouslySetInnerHTML={data} /> */}
-		</Layout>
+		</PageLayout>
 	)
 }
 

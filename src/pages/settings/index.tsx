@@ -1,48 +1,28 @@
-import Button from 'components/button'
-import Container from 'components/container'
-import Header from 'components/header'
-import Layout from 'components/layout'
-import { SettingsTabs } from 'components/pagesTabs'
-import Skeletons from 'components/skeletons'
-import Tabs, { Tab } from 'components/tabs'
-import { useRouter } from 'next/router'
+import { PageLayout } from '~/components/Layouts'
 import { ReactNode, useState } from 'react'
+import Input from '~/components/Input'
 
 export default function Settings() {
-	const { pathname, push } = useRouter()
 	return (
-		<Layout>
+		<PageLayout>
 			<div className='flex items-start'>
-				<div className='bg-white h-screen w-1/3 flex flex-col items-center'>
-					<div className='p-4'>
-						<h1 className='font-mono text-lg'>Settings</h1>
+				<div className='bg-white h-screen w-1/3 flex flex-col items-center gap-1 px-2'>
+					<div className='px-6 py-6'>
+						<h1 className='font-mono font-bold text-lg'>Settings</h1>
 					</div>
-					<div className='w-full border-t border-slate-100 p-2'>
+
+					<div className='w-full border-t border-slate-100 p-2 hover:bg-gray-200 rounded-lg'>
 						<h3>About</h3>
-						<h4>Description</h4>
-					</div>
-					<div className='w-full border-t border-slate-100 p-2'>
-						<h3>About</h3>
-						<h4>Description</h4>
-					</div>
-					<div className='w-full border-t border-slate-100 p-2'>
-						<h3>About</h3>
-						<h4>Description</h4>
-					</div>
-					<div className='w-full border-t border-slate-100 p-2'>
-						<h3>About</h3>
-						<h4>Description</h4>
-					</div>
-					<div className='w-full border-t border-slate-100 p-2'>
-						<h3>Version</h3>
 						<h4>Description</h4>
 					</div>
 				</div>
 				<div className='w-full h-screen flex flex-col bg-slate-100'>
-					details
+					<div className=' mx-auto my-0 max-w-xs '>
+						<h1>Hello World</h1>
+					</div>
 				</div>
 			</div>
-		</Layout>
+		</PageLayout>
 	)
 }
 
@@ -65,3 +45,9 @@ const Item = ({
 		</div>
 	)
 }
+
+const I = () => (
+	<div className='pb-4 w-full'>
+		<Input type={'search'} className='w-full rounded-full px-4' />
+	</div>
+)

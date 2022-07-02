@@ -1,4 +1,4 @@
-import Tabs, { Tab } from 'components/tabs'
+import Tabs, { Tab } from '~/components/Tabs'
 import React, { useState, useCallback, useContext, useEffect } from 'react'
 import querystring from 'query-string'
 import { useRouter } from 'next/router'
